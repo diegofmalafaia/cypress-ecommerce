@@ -1,7 +1,7 @@
 describe('E-commerce Cart Flow', () => {
 
   beforeEach(() => {
-
+    cy.login();
   });
 
   it('should add item to cart', () => {

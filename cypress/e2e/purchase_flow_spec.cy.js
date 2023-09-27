@@ -1,10 +1,12 @@
 describe('E-commerce Purchase Flow for Logged-in Users', () => {
   before(() => {
-
+    cy.login();
   });
+
   it('should finalize a purchase from the cart ', () => {
 
   });
+
   it('should finalize a purchase from the checkout button ', () => {
 
   });
