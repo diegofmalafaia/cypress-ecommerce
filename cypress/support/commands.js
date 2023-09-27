@@ -32,3 +32,21 @@ Cypress.Commands.add('goToHomepage', (email, password) => {
     sylius_logo.click();
     cy.title().should('eq', 'Fashion Web Store')
 });
+
+// products
+
+Cypress.Commands.add('navigateToMensTShirts', () => {
+    const tshirt_span = cy.contains('span', 'T-shirts');
+    tshirt_span.click();
+
+    const men_option = cy.contains('a', 'Men');
+    men_option.click();
+});
+
+Cypress.Commands.add('searchProduct', (product) => {
+    const search_textfield = cy.get('#criteria_search_value');
+    search_textfield.type(product);
+
+    const search_button = cy.contains('button', 'Search');
+    search_button.click();
+});
