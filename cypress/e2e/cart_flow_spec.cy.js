@@ -1,5 +1,22 @@
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
-  })
-})
+describe('E-commerce Cart Flow', () => {
+
+  beforeEach(() => {
+
+  });
+
+  it('should add item to cart', () => {
+
+  });
+
+  it('should remove item from cart', () => {
+
+  });
+
+  it('should update item quantity in cart', () => {
+
+  });
+
+  it('should update the total price when adding items in cart', () => {
+
+  });
+});
