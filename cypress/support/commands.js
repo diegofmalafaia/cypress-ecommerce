@@ -50,3 +50,16 @@ Cypress.Commands.add('searchProduct', (product) => {
     const search_button = cy.contains('button', 'Search');
     search_button.click();
 });
+
+//Address
+
+Cypress.Commands.add('fillFieldsWithValidAddress', () => {
+    cy.fixture('address.json').then(address => {
+        cy.get('#sylius_checkout_address_billingAddress_firstName').clear().type(address.validFirstName)
+        cy.get('#sylius_checkout_address_billingAddress_lastName').clear().type(address.validLastName)
+        cy.get('#sylius_checkout_address_billingAddress_street').clear().type(address.validStreetAddress)
+        cy.get('#sylius_checkout_address_billingAddress_countryCode').select(address.validCountry);
+        cy.get('#sylius_checkout_address_billingAddress_city').clear().type(address.validCity)
+        cy.get('#sylius_checkout_address_billingAddress_postcode').clear().type(address.validPostCode);
+    });
+});
