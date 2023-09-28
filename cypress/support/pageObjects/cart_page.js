@@ -21,6 +21,7 @@ class CartPage {
         cy.get(this.cartButton).click();
         cy.get(this.goToCartButton).click();
         cy.contains(this.cartMessage).should('be.visible');
+        return this;
     }
 
     deleteCart() {
@@ -32,9 +33,11 @@ class CartPage {
                 cy.goToHomepage();
             }
         });
+        return this;
     }
 
     addProductToCart(product) {
+        cy.navigateToMensTShirts();
         cy.searchProduct(product);
 
         cy.get(this.productImage).trigger('mouseover');
@@ -42,10 +45,12 @@ class CartPage {
         cy.get(this.productName).should('have.text', product);
         cy.get(this.addToCartButton).click();
         cy.contains(this.addedToCartMessage).should('be.visible');
+        return this;
     }
 
     verifyProductQuantity(expectedValue) {
         cy.get(this.productQuantityInput).should('have.value', expectedValue);
+        return this;
     }
 
     updateAndVerifyCartQuantity() {
@@ -55,6 +60,7 @@ class CartPage {
             cy.get(this.updatedCartButton).click();
             cy.get(this.productQuantityInput).should('have.value', newValue.toString());
         });
+        return this;
     }
 
     updateAndVerifyCartTotalValue() {
@@ -78,11 +84,13 @@ class CartPage {
                 });
             });
         });
+        return this;
     }
 
     goToCheckoutFromCart() {
         cy.get(this.checkoutButtonOnCart).click();
         cy.get(this.purchaseEmail).should('contain.text', 'Checking out');
+        return this;
     }
 }
 

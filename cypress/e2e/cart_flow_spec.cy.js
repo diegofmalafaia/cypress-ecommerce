@@ -8,44 +8,31 @@ describe('E-commerce Cart Flow', () => {
   });
 
   it('should add item to cart', () => {
-    cartPage.deleteCart();
-
-    cy.navigateToMensTShirts();
-
-    cartPage.addProductToCart('Sport basic white T-Shirt');
-
-    cartPage.navigateToCart();
-
-    cartPage.verifyProductQuantity('1');
+    cartPage
+        .deleteCart()
+        .addProductToCart('Sport basic white T-Shirt')
+        .navigateToCart()
+        .verifyProductQuantity('1');
   });
 
   it('should remove item from cart', () => {
-    cy.navigateToMensTShirts();
-
-    cartPage.addProductToCart('Sport basic white T-Shirt');
-
-    cartPage.navigateToCart();
-
-    cartPage.deleteCart();
+    cartPage
+        .addProductToCart('Sport basic white T-Shirt')
+        .navigateToCart()
+        .deleteCart();
   });
 
   it('should update item quantity in cart', () => {
-    cy.navigateToMensTShirts();
-
-    cartPage.addProductToCart('Sport basic white T-Shirt');
-
-    cartPage.navigateToCart();
-
-    cartPage.updateAndVerifyCartQuantity();
+    cartPage
+        .addProductToCart('Sport basic white T-Shirt')
+        .navigateToCart()
+        .updateAndVerifyCartQuantity();
   });
 
   it('should update the total price when adding items', () => {
-    cy.navigateToMensTShirts();
-
-    cartPage.addProductToCart('Sport basic white T-Shirt');
-
-    cartPage.navigateToCart();
-
-    cartPage.updateAndVerifyCartTotalValue();
+    cartPage
+        .addProductToCart('Sport basic white T-Shirt')
+        .navigateToCart()
+        .updateAndVerifyCartTotalValue();
   });
 });

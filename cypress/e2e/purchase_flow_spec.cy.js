@@ -9,18 +9,18 @@ describe('E-commerce Purchase Flow for Logged-in Users', () => {
   });
 
   it.only('should finalize a purchase from the cart ', () => {
-    cy.navigateToMensTShirts();
-
-    cartPage.addProductToCart('Sport basic white T-Shirt');
-    cartPage.navigateToCart();
-    cartPage.goToCheckoutFromCart();
+    cartPage
+        .addProductToCart('Sport basic white T-Shirt')
+        .navigateToCart()
+        .goToCheckoutFromCart();
 
     cy.fillFieldsWithValidAddress();
 
-    purchasePage.navigateToShipmentOptions();
-    purchasePage.navigateToPayment();
-    purchasePage.navigateToSummary();
-    purchasePage.placeOrderAndVerifySuccess();
+    purchasePage
+        .navigateToShipmentOptions()
+        .navigateToPayment()
+        .navigateToSummary()
+        .placeOrderAndVerifySuccess();
   });
 
   it('should finalize a purchase from the checkout button ', () => {
